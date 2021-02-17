@@ -1,10 +1,12 @@
 <template> 
     <div class="bg">
         <div :class="{textpart:true, active:showflag}">
-            <p>XXX有限公司</p>
-            <p>平口褲 | 發熱衣 | 足弓襪</p>
+            <div class="companyname">冠億興有限公司</div>
+            <div class="companyproduct">內衣褲 | 機能衣 | 機能襪</div>
+            <div class="subtext">專業製造/進出口批發</div>
+            <div class="subtext">Since 2002</div>
         </div>
-        <div :class="{buttonpart:true, active:getbeginningflag}" @click="clickgetin">
+        <div class="buttonpart" @click="clickgetin">
             點此進入 ➤
         </div>
     </div>
@@ -58,18 +60,49 @@
     .textpart{
         position: absolute;
         right: 10%;
-        bottom: 17%;
+        bottom: 20%;
         color:#a3a3a3;
-        font-size: 22px;
-        line-height: 34px;
         font-family: 'Noto Serif TC', serif;
-        @media (min-width: 768px) AND (max-width: 960px) {
-            font-size: 25px;
-            line-height: 36px;
-        }
-        @media (min-width: 960px) {
-            font-size: 30px;
+        text-align: right;
+        .companyname{
+            font-size: 32px;
             line-height: 42px;
+            margin-bottom: 5px;
+            @media (min-width: 768px) AND (max-width: 960px) {
+                font-size: 37px;
+                line-height: 47px;
+            }
+            @media (min-width: 960px) {
+                font-size: 42px;
+                line-height: 52px;
+            }
+        }
+        .companyproduct{
+            font-size: 15px;
+            line-height: 25px;
+            font-style: oblique;
+            margin-bottom: 20px;
+            @media (min-width: 768px) AND (max-width: 960px) {
+                font-size: 18px;
+                line-height: 28px;
+            }
+            @media (min-width: 960px) {
+                font-size: 22px;
+                line-height: 32px;
+            }
+        }
+        .subtext{
+            font-size: 12px;
+            line-height: 22px;
+            font-style: oblique;
+            @media (min-width: 768px) AND (max-width: 960px) {
+                font-size: 15px;
+                line-height: 25px;
+            }
+            @media (min-width: 960px) {
+                font-size: 18px;
+                line-height: 28px;
+            }
         }
     }
     .buttonpart{
@@ -85,7 +118,6 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        opacity: 0;
         transition: opacity .5s ease-in-out;
         animation: moveinout 1.5s; 
         animation-iteration-count: infinite;
@@ -101,9 +133,6 @@
         @media (min-width: 960px) {
             font-size: 35px;
         }
-    }
-    .active{
-        opacity: 1;
     }
     /* .buttonpart:hover{
         background-color: rgba(228, 228, 228, 0.5);

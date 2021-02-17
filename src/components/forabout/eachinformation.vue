@@ -45,6 +45,7 @@
         display: flex;
         flex-direction: row;
         font-size: 18px;
+        
         .eachtitle{
             width: 100px;
             //background-color: red;

@@ -1,18 +1,45 @@
 <template> 
     <div class="headerbar">
+        <div :class="{mobanchor:true, showmobanchor:isOpen}">
+            <div class="eachone" @click="clickbeginning()">
+                冠億興有限公司
+            </div>
+            <div class="eachone" @click="clickmain()">
+                主頁
+            </div>
+            <div class="eachone" @click="clickabout()">
+                關於我們
+            </div>
+            <div class="eachone" @click="clickproduct()">
+                產品介紹
+            </div>
+        </div>
         <div class="barcontainer">
-            <div class="anchorpart">
-                <div class="eachanchor" @click="clickbeginning">
-                    XXX有限公司
+            <div v-if="detectflag" class="anchorpart_pc">
+                <div class="eachanchor_pc" @click="clickbeginning">
+                    冠億興有限公司
                 </div>
-                <div class="eachanchor" style="padding-left: 50px; border-right: 1px solid #9a9a9a;" @click="clickmain">
+                <div class="eachanchor_pc" style="padding-left: 20px; border-right: 1px solid #9a9a9a;" @click="clickmain">
                     主頁
                 </div>
-                <div class="eachanchor" @click="clickabout" style="border-right: 1px solid #9a9a9a;">
+                <div class="eachanchor_pc" style="border-right: 1px solid #9a9a9a;" @click="clickabout">
                     關於我們
                 </div>
-                <div class="eachanchor" @click="clickproduct">
+                <div class="eachanchor_pc" @click="clickproduct">
                     產品介紹
+                </div>
+            </div>
+            <div v-if="!detectflag" class="anchorpart_mob">
+                <div class="eachanchor_mob" @click="openMenu">
+                    選單
+                    <i
+                        :class="{
+                        'haeder-bar__menu-button__arrow': true,
+                        'haeder-bar__menu-button__arrow--white': true,
+                        'haeder-bar__menu-button__arrow--up': isOpen,
+                        'haeder-bar__menu-button__arrow--down': !isOpen
+                        }"
+                    />
                 </div>
             </div>
             <div class="contactpart">
@@ -37,15 +64,36 @@
     export default {
         data(){
             return{
-
+                detectflag: true,
+                isOpen: false,
+                thislist: ["XXX有限公司", "主頁", "關於我們", "產品介紹"],
             }
         },
-        
+        created () {
+            window.addEventListener('resize', this.resizeevent);
+        },
+        destroyed () {
+            window.removeEventListener('resize', this.resizeevent);
+        },
         mounted(){
-
+            if(window.innerWidth>=768){
+                this.detectflag=true;
+                this.isOpen=false;
+            }
+            else this.detectflag=false;
         },
 
         methods:{
+            resizeevent(){
+                if(window.innerWidth>=768){
+                    this.detectflag=true;
+                    this.isOpen=false;
+                }
+                else this.detectflag=false;
+            },
+            openMenu() {
+                this.isOpen = !this.isOpen
+            },
             clickbeginning(){
                 this.$router.push('/');
             },
@@ -73,24 +121,83 @@
     display: flex;
     flex-direction: row;
     background-color: black;
+    .mobanchor{
+        position: fixed;
+        z-index: 100;
+        top: 50px;
+        width: 100%;
+        height: 0px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        transition: height 0.3s ease-in-out;
+        overflow: hidden;
+        .eachone{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border-bottom: solid 1px #e6e6e6;
+            color:#c4c4c4;
+            padding-left:40px;
+            cursor: pointer;
+        }
+        .eachone:hover{
+            background-color: rgb(243, 243, 243);
+            color:#979797;
+        }
+    }
+    .showmobanchor{
+        height: 160px;
+    }
     .barcontainer{
         position: relative;
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row;
-        .anchorpart{
+        .anchorpart_pc{
             flex: 2;
             height: 100%;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             //background-color: red;
-            .eachanchor{
+            .eachanchor_pc{
                 color: white; 
                 padding-left: 16px;
                 padding-right: 16px;
+                cursor: pointer;
                 //background-color: yellow;
+            }
+        }
+        .anchorpart_mob{
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .eachanchor_mob{
+                color: white; 
+                padding-left: 16px;
+                padding-right: 16px;
+                cursor: pointer;
+                .haeder-bar__menu-button__arrow {
+                    border-style: solid;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    margin-left: 3px;
+                    transition: 0.333s ease-in-out;
+                    &.haeder-bar__menu-button__arrow--white {
+                        border-color: #ededed;
+                    }
+                    &.haeder-bar__menu-button__arrow--up {
+                        transform: translateY(1px) rotate(-135deg);
+                    }
+                    &.haeder-bar__menu-button__arrow--down {
+                        transform: translateY(-2px) rotate(45deg);
+                    }
+                }
             }
         }
         .contactpart{

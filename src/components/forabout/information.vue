@@ -41,18 +41,24 @@
 .informationpart{
     position: relative;
     width: 100%;
-    background-color: #e2d37e;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
     .informationcontainer{
         position: relative;
-        width: 60%;
-        margin: 20px 0 20px 0;
-        background-color: #8a835f;
+        width: 100%;
+        margin: auto;
+        padding: 24px 16px 24px 16px;
         display: flex;
         flex-direction: column;
+        border: 1px solid #dcdddd;
+        @include pad {
+            max-width: 576px;
+        }
+        @include pc {
+            max-width: 720px;
+        }
     }
 }
 </style>
