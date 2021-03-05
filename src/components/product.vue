@@ -9,9 +9,9 @@
         <productphoto>
 
         </productphoto>
-        <categorybar>
+        <!-- <categorybar>
 
-        </categorybar>
+        </categorybar> -->
         <productpage>
             
         </productpage>
@@ -25,7 +25,7 @@
     import upheader from '@/components/common/upheader.vue'
     import space from '@/components/common/space.vue'
     import productphoto from '@/components/forproduct/productphoto.vue'
-    import categorybar from '@/components/forproduct/categorybar.vue'
+    // import categorybar from '@/components/forproduct/categorybar.vue'
     import productpage from '@/components/forproduct/productpage.vue'
     import bottomfooter from '@/components/common/bottomfooter.vue'
 
@@ -34,7 +34,7 @@
             upheader,
             space,
             productphoto,
-            categorybar,
+            // categorybar,
             productpage,
             bottomfooter
         },

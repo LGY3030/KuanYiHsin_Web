@@ -1,7 +1,7 @@
   
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
-      ? 'https://vip.udn.com/newmedia/2020/companytest'
+      ? 'http://nmdap.udn.com.tw/test/companytest/'
       : './',
     css: {
       loaderOptions: {

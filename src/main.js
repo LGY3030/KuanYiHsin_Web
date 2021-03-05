@@ -14,7 +14,7 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
   mode: 'history',
-  //base: '/newmedia/2020/companytest/',
+  // base: '/test/companytest/',
   routes: [
     {
       path: '/main',

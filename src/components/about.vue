@@ -3,16 +3,13 @@
         <upheader>
 
         </upheader>
-        <space>
-
-        </space>
+        <aboutphoto>
+            
+        </aboutphoto>
         <photoanddescript>
 
         </photoanddescript>
-        <!-- <aboutphoto>
-            
-        </aboutphoto>
-        <infoparagraph>
+        <!-- <infoparagraph>
 
         </infoparagraph> -->
         <!-- <information>
@@ -29,9 +26,8 @@
 
 <script>
     import upheader from '@/components/common/upheader.vue'
-    import space from '@/components/common/space.vue'
     import photoanddescript from '@/components/forabout/photoanddescript.vue'
-    // import aboutphoto from '@/components/forabout/aboutphoto.vue'
+    import aboutphoto from '@/components/forabout/aboutphoto.vue'
     // import infoparagraph from '@/components/forabout/infoparagraph.vue'
     // import information from '@/components/forabout/information.vue'
     import contactinfo from '@/components/forabout/contactinfo.vue'
@@ -40,9 +36,8 @@
     export default {
         components:{
             upheader,
-            space,
             photoanddescript,
-            // aboutphoto,
+            aboutphoto,
             // infoparagraph,
             // information,
             contactinfo,

@@ -1,6 +1,6 @@
 <template> 
-    <div class="aboutphotopart">
-        照片
+    <div class="productphotopart">
+        <div class="image" />
     </div>
 </template>
 
@@ -24,14 +24,17 @@
 </script>
 
 <style lang="scss" scoped>
-.aboutphotopart{
+.productphotopart{
     position: relative;
     width: 100%;
-    height: 400px;
-    background-color: #7ee2a0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
+    height: 500px;
+    .image {
+        width: 100%;
+        height: 100%;
+        background-image: url("~@/assets/images/productpage.jpg");
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: top;
+    }
 }
 </style>

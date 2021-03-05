@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div style="padding-bottom: 50px;">
       <ArticleContainer bg-color="#f5f7f9">
+        <div class="aboutcontacttitle">
+            聯絡資訊
+        </div>
         <div class="contactinfopart">
             <div class="eachcontactinfo">
                 <div class="contactinfograph">
@@ -25,6 +28,19 @@
                     </div>
                     <div class="infoinfo">
                         bnw8989@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="eachcontactinfo">
+                <div class="contactinfograph">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contactinfoinfo">
+                    <div class="infotitle">
+                        上班時間
+                    </div>
+                    <div class="infoinfo">
+                        平日 9:00AM - 18:00PM
                     </div>
                 </div>
             </div>
@@ -57,6 +73,12 @@ export default {
 </script>
 
 <style lang="scss">
+    .aboutcontacttitle{
+        font-size: 30px;
+        border-bottom: 1px solid #d1d1d1;
+        padding: 20px 0 20px 0;
+        margin: 30px 0 30px 0;
+    }
     .contactinfopart{
         display: flex;
         flex-wrap: wrap;
